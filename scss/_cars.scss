@@ -1,12 +1,32 @@
+@mixin theme($theme: $color-01, $bg: $color-04) {
+    background-color: $bg;
+    border: 1px solid $theme;
+    box-shadow: 0 0 1px rgba($color-default, .25);
+}
+
 .cars {
-    h2 {
+
+    &__title {
         color: $color-02;
     }
-    li {
-        color: $color-04;
+    
+    &__item {
+        @include theme($theme: #ccc, $bg: #fff);
+        color: $color-02;
+        display: flex;
+        float: left;
+        height: max-content;
+        justify-content: center;
+        align-items: baseline;
+        flex-flow: column;
 
-        a {
-            background-color: $color-default;
+        &--destack {
+            @include theme;
         }
+
+    }
+
+    &__button {
+        background-color: $color-default;
     }
 }
